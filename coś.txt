@@ -146,10 +146,12 @@ ChatApp.propTypes = {
 
 
 
+// App.jsx
 import Start from "./components/Start";
 import ChatApp from "./components/ChatApp";
 import "../src/index.css";
 import { useState } from "react";
+import { v4 as uuidv4 } from 'uuid';
 
 export default function App() {
   const [isChatting, setIsChatting] = useState(false);
@@ -158,7 +160,7 @@ export default function App() {
 
   const createNewChat = () => {
     const newChat = {
-      id: `Chat ${new Date().toLocaleDateString()} ${new Date().toLocaleTimeString()}`,
+      id: uuidv4(),
       messages: [],
     };
     const updatedChats = [newChat, ...chat];
@@ -170,11 +172,11 @@ export default function App() {
     if (chat.length === 0) {
       createNewChat();
     }
-    setIsChatting(true); // przejście do czatu po kliknięciu "Start"
+    setIsChatting(true);
   };
 
   const handleGoBack = () => {
-    setIsChatting(false); // powrót do ekranu Start
+    setIsChatting(false);
   };
 
   return (
@@ -186,7 +188,8 @@ export default function App() {
             chat={chat}
             setChat={setChat}
             activeChat={activeChat}
-            setActiveChat={setActiveChat} // <-- ważne!
+            setActiveChat={setActiveChat}
+            onNewChat={createNewChat}
           />
         ) : (
           <div>Ładowanie czatu...</div>
