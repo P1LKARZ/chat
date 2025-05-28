@@ -1,0 +1,27 @@
+.start-page {
+  width: 100%;
+  height: 100vh;
+  background-color: #f5f5f5;
+  display: grid;
+  place-items: center;
+}
+
+.start-page-btn {
+  width: 30rem;
+  height: 10rem;
+  background: linear-gradient(135deg, #4a90e2, #9013fe);
+  border: none;
+  border-radius: 1rem;
+  font-size: 4rem;
+  font-weight: 600;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 0.5rem;
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.start-page-btn:active {
+  transform: scale(0.98);
+}
